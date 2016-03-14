@@ -1,0 +1,14 @@
+<div class="row application-icon-holder">
+	<a ng-repeat="appIcon in alsc.applicationData | orderBy: 'displayOrder'" ng-href="{{ {'appUrl': appIcon.appUrl, 'marketUrl': appIcon.marketUrl}  | AppLauncherStripUrl: appIcon.enabled }}" data-uid="{{appIcon.appUID}}" target="_blank">
+		<div class="col-md-4">
+			<div class="row">
+				<img ng-src="{{ appIcon.iconUrl | AppLauncherStripImageUrl: appIcon.enabled }}" ng-class="appIcon.subscriptionClass[0]"/>
+			</div>
+			<div class="row">
+				<p class="splash-content">
+					<ng-include src=" appIcon.name | AppLauncherStripFileUrl"></ng-include>
+				</p>
+			</div>
+		</div>
+	</a>
+</div>
